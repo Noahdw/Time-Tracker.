@@ -84,6 +84,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms" />
@@ -151,6 +152,7 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="SleepTracker_TemporaryKey.pfx" />
+    <None Include="Tokens.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

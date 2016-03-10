@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.IO;
-
+using System.Configuration;
 namespace SleepTracker
 {
     class AuthPostService
@@ -20,6 +20,9 @@ namespace SleepTracker
         string _oathTimestamp;
         public string url = "https://api.twitter.com/1.1/statuses/update.json";
 
+      
+
+
         public string CreateSignature(string status)
         {
             string path = Path.Combine(Environment.CurrentDirectory,"Tokens.txt");
@@ -33,12 +36,12 @@ namespace SleepTracker
             }
             string[] tokenLines = File.ReadAllLines(path);
 
-            oauthConsumerKey = "lraInGL0JA4JfvvoFED4CStzG";
-            oauthConsumerSecret = "RiPBzFx0GrgQIE5YYNcLyMardJcDHZoyyI6E6y99ZoLlGWAJjI";
+            oauthConsumerKey = ConfigurationManager.AppSettings["consumerKey"];
+            oauthConsumerSecret = ConfigurationManager.AppSettings["consumerSecret"];
             oauthSignatureMethod = "HMAC-SHA1";
             oauthVersion = "1.0";
-            oauthToken = tokenLines[0];
-            oauthTokenSecret = tokenLines[1];
+            oauthToken = ConfigurationManager.AppSettings["tokenKey"];
+            oauthTokenSecret = ConfigurationManager.AppSettings["tokenSecret"];
             _oauthNonce = Convert.ToBase64String(new ASCIIEncoding().GetBytes(DateTime.Now.Ticks.ToString()));
             TimeSpan ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
             _oathTimestamp = Convert.ToInt64(ts.TotalSeconds).ToString();
