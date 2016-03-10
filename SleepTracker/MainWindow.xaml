@@ -1,0 +1,15 @@
+﻿<Window x:Class="SleepTracker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SleepTracker"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="168.5" Width="238.5">
+    <Grid Margin="0,0,1,-3">
+        <TextBox x:Name="TimerTextBox" HorizontalAlignment="Left" Height="54" Margin="34,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"  Text="{Binding Path=displayTime}">
+
+        </TextBox>
+
+    </Grid>
+</Window>
