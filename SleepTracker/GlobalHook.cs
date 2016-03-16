@@ -31,7 +31,6 @@ namespace SleepTracker
         private void GlobalHookMouseDownExt(object sender, MouseEventExtArgs e)
         {
             hasEvent = true;
-            Console.WriteLine("MouseDown: \t{0}; \t System Timestamp: \t{1}", e.Button, e.Timestamp);
 
             // uncommenting the following line will suppress the middle mouse button click
             // if (e.Buttons == MouseButtons.Middle) { e.Handled = true; }

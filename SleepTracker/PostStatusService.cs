@@ -62,5 +62,40 @@ namespace SleepTracker
 
 
         }
-    }
+
+        public void tryRequests()
+        {
+            AuthorizeService auth = new AuthorizeService();
+            StringBuilder sb = new StringBuilder();
+
+           // sb.AppendFormat("status={0}", Uri.EscapeDataString(message));
+
+           // string postBody = sb.ToString();
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(auth.url);
+
+            request.Headers.Add("Authorization", auth.CreateAuthorizationHeaderParameter(auth.CreateSignature()));
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ServicePoint.Expect100Continue = false;
+            request.Method = "POST";
+           // request.ContentLength = 0;
+
+           
+                WebResponse response = request.GetResponse();
+
+                string contents = "";
+                using (Stream stream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    contents = reader.ReadToEnd();
+                }
+
+                Console.WriteLine("Twitter response: " + contents);
+
+
+
+            }
+           
+        }
+    
 }
