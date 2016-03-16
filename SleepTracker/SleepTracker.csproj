@@ -107,8 +107,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AudioDetection.cs" />
+    <Compile Include="AuthorizeService.cs" />
     <Compile Include="AuthPostService.cs" />
     <Compile Include="GlobalHook.cs" />
+    <Compile Include="Login.cs" />
     <Compile Include="PostStatusService.cs" />
     <Compile Include="TimeRecorder.cs" />
     <Page Include="MainWindow.xaml">
@@ -152,10 +154,11 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="SleepTracker_TemporaryKey.pfx" />
-    <None Include="Tokens.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -168,6 +171,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TwitterServices\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
