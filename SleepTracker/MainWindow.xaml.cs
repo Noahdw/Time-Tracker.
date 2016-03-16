@@ -25,14 +25,16 @@ namespace SleepTracker
     public partial class MainWindow : Window
     {
         TimeRecorder timer = new TimeRecorder();
+        Login log = new Login();
         public MainWindow()
         {
+            log.userLogin();
             this.DataContext = timer;
             InitializeComponent();
             keyHook.Subscribe();
             quartzScheduler();
             // var t = Task.Run(() => { timer.beginTimer(); });
-            timer.beginTimer();
+            //timer.beginTimer();
         }
        GlobalHook keyHook = new GlobalHook();
         

@@ -58,7 +58,7 @@ namespace SleepTracker
             {
                 mainTimer.Start();
                 timeSpan = mainTimer.Elapsed;
-                Console.WriteLine(mainTimer.Elapsed);
+                
                 displayTime = string.Format("Time: {0}h {1}m {2}s {3}ms", timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds);
             }
             if (hasEvent == true)
