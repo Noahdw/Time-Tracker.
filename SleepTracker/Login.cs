@@ -16,13 +16,14 @@ namespace SleepTracker
                 {
                     PostStatusService1 post = new PostStatusService1();
                     post.tryRequests();
+                    System.Diagnostics.Process.Start("https://api.twitter.com/oauth/authenticate?");
                 }
-                catch (Exception e)
+                catch (System.Net.WebException e)
                 {
 
                     Console.WriteLine(e + "This was the login");
                 }
-                System.Diagnostics.Process.Start("http://google.com");
+                
             }
             
         }

@@ -53,7 +53,7 @@ namespace SleepTracker
                                    );
 
             baseString = string.Concat("POST&", Uri.EscapeDataString(url), "&", Uri.EscapeDataString(baseString));
-            Console.WriteLine(baseString);
+           // Console.WriteLine(baseString);
 
             //generation the signature key the hash will use
             string signatureKey =
@@ -67,7 +67,7 @@ namespace SleepTracker
                 hmacsha1.ComputeHash(
                     new ASCIIEncoding().GetBytes(baseString)));
 
-
+            Console.WriteLine(Uri.EscapeDataString(signatureString));
             return signatureString;
 
         }

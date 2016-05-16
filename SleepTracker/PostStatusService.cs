@@ -28,7 +28,6 @@ namespace SleepTracker
             request.ServicePoint.Expect100Continue = false;
             request.Method = "POST";
 
-
             try
             {
                 using (Stream stream = request.GetRequestStream())
@@ -47,20 +46,11 @@ namespace SleepTracker
                 }
 
                 Console.WriteLine("Twitter response: " + contents);
-
-
-
             }
             catch (WebException e)
             {
                 Console.WriteLine(e.Message);
-
-
             }
-
-
-
-
         }
 
         public void tryRequests()
@@ -68,20 +58,13 @@ namespace SleepTracker
             AuthorizeService auth = new AuthorizeService();
             StringBuilder sb = new StringBuilder();
 
-           // sb.AppendFormat("status={0}", Uri.EscapeDataString(message));
-
-           // string postBody = sb.ToString();
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(auth.url);
-
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(auth.url + "?" + "oauth_callback" + "=" + "https://www.google.com");
             request.Headers.Add("Authorization", auth.CreateAuthorizationHeaderParameter(auth.CreateSignature()));
-            request.ContentType = "application/x-www-form-urlencoded";
             request.ServicePoint.Expect100Continue = false;
             request.Method = "POST";
-           // request.ContentLength = 0;
+            request.ContentLength = 0;
 
-           
-                WebResponse response = request.GetResponse();
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
                 string contents = "";
                 using (Stream stream = response.GetResponseStream())
@@ -90,12 +73,14 @@ namespace SleepTracker
                     contents = reader.ReadToEnd();
                 }
 
-                Console.WriteLine("Twitter response: " + contents);
+            Console.WriteLine("Twitter response: " + contents);
+        //5/16/2016
+        //TODO. Recieved request token. need to send user to login page with token, 
+        //https://dev.twitter.com/web/sign-in/implementing
 
 
-
-            }
-           
         }
+
+    }
     
 }
