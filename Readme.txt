@@ -1,0 +1,1 @@
+This is actually a neat app that tracks the amount of time you spend on the computer each day and outputs the results to twitter. It works by using keyboard and mouse hooks, detecting if audio is currently playing, and delivering the total time as a tweet for easy categorization of how much time you spend on the computer. It's actually quite accurate surprisingly.
